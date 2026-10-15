@@ -81,6 +81,12 @@
     .dress { color: var(--muted); font-size: 1.1rem; letter-spacing: .05em; }
     footer { text-align: center; padding: 26px 12px 48px; color: var(--gold-light); font-style: italic; font-size: 1.8rem; }
     .phases { color: var(--gold); letter-spacing: .16em; font-size: 1.8rem; margin-top: 20px; }
+    .reserved-colors { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 26px auto 0; }
+    .reserved-color { width: 118px; padding: 13px 10px 12px; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.04); }
+    .color-swatch { height: 54px; width: 100%; border: 1px solid rgba(255,255,255,.38); margin-bottom: 10px; }
+    .reserved-color span { display: block; font: .75rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; color: var(--cream); }
+    .swatch-blue { background: #173f8a; }
+    .swatch-silver { background: linear-gradient(115deg, #59616f 0%, #aeb5c1 14%, #eef1f5 25%, #7d8797 38%, #dfe4ec 50%, #858e9e 63%, #f5f6f8 74%, #9da6b5 86%, #59616f 100%); box-shadow: inset 0 1px 2px rgba(255,255,255,.65), 0 0 12px rgba(192,204,224,.22); }
     @media (max-width: 420px) {
       section { padding: 42px 15px; }
       .details-grid { gap: 8px; }
@@ -142,6 +148,15 @@
         <p class="intro">Preparemos juntos una noche llena de magia, deseos y recuerdos inolvidables.</p>
         <div class="phases" aria-hidden="true">☾ ☽ ◐ ☾</div>
         <div class="eyebrow" style="margin-top:22px">Con cariño, Ada</div>
+      </section>
+      <section id="colores">
+        <div class="rule">✧</div>
+        <div class="eyebrow">Colores reservados para la quinceañera:</div>
+        <div class="reserved-colors" aria-label="Colores reservados para la quinceañera">
+          <div class="reserved-color"><div class="color-swatch swatch-blue"></div><span>Azul</span></div>
+          <div class="reserved-color"><div class="color-swatch swatch-silver"></div><span>Plateado</span></div>
+        </div>
+        <div class="rule">✧</div>
       </section>
     </div>
     <footer>✧ Que las estrellas nos encuentren celebrando ✧</footer>
