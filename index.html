@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07152e">
+  <meta name="description" content="Estás invitado a celebrar los 15 años de Ada. Una noche mágica bajo las estrellas.">
+  <title>Mis 15 · Ada</title>
+  <style>
+    :root {
+      --navy: #06142d;
+      --navy-soft: #0b2041;
+      --gold: #d9b66e;
+      --gold-light: #f4dfaa;
+      --cream: #fff8e9;
+      --muted: #d4d9e6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--cream);
+      background:
+        radial-gradient(ellipse at 18% 12%, rgba(41,79,133,.45), transparent 38%),
+        radial-gradient(ellipse at 82% 36%, rgba(23,54,101,.38), transparent 42%),
+        linear-gradient(160deg, #061127, #0a1e3d 52%, #061127);
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background-image:
+        radial-gradient(1px 1px at 12% 17%, #f7d98c 99%, transparent),
+        radial-gradient(1.5px 1.5px at 71% 13%, #f7d98c 99%, transparent),
+        radial-gradient(1px 1px at 83% 41%, #fff2cb 99%, transparent),
+        radial-gradient(1.5px 1.5px at 24% 73%, #d8b66f 99%, transparent),
+        radial-gradient(1px 1px at 53% 88%, #fff2cb 99%, transparent);
+      background-size: 230px 230px, 310px 310px, 190px 190px, 270px 270px, 350px 350px;
+      opacity: .65;
+    }
+    .stars { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+    .star { position: absolute; color: var(--gold-light); opacity: .6; animation: twinkle 3.5s ease-in-out infinite; }
+    .star:nth-child(2n) { animation-delay: 1.4s; }
+    @keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.8); } 50% { opacity: .95; transform: scale(1.2); } }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .wrap { width: min(100% - 28px, 760px); margin: auto; position: relative; z-index: 1; }
+    .frame { border: 1px solid rgba(217,182,110,.7); margin: 18px auto; position: relative; }
+    .frame::before, .frame::after { content: "✦"; position: absolute; color: var(--gold); font-size: 19px; background: var(--navy); padding: 0 7px; }
+    .frame::before { top: -11px; left: 50%; transform: translateX(-50%); }
+    .frame::after { bottom: -11px; left: 50%; transform: translateX(-50%); }
+    section { padding: 54px 24px; text-align: center; }
+    .hero { min-height: 94svh; display: grid; place-items: center; padding: 34px 22px; }
+    .hero-inner { max-width: 620px; animation: rise 1.2s ease both; }
+    .eyebrow { letter-spacing: .32em; text-transform: uppercase; font-size: .78rem; color: var(--gold-light); line-height: 1.8; }
+    .moon { font-size: 3.5rem; color: var(--gold); line-height: 1.2; text-shadow: 0 0 24px rgba(217,182,110,.25); }
+    h1 { margin: 12px 0 4px; font-size: clamp(3.8rem, 16vw, 7.6rem); font-weight: 400; line-height: .95; letter-spacing: -.04em; }
+    h1 span { display: block; color: var(--gold-light); font-style: italic; font-size: .7em; margin-top: 12px; }
+    .rule { display: flex; justify-content: center; align-items: center; gap: 12px; color: var(--gold); margin: 24px auto; }
+    .rule::before, .rule::after { content: ""; width: min(24vw, 100px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+    .rule::after { transform: scaleX(-1); }
+    .intro { font-size: clamp(1rem, 3.8vw, 1.25rem); line-height: 1.8; color: var(--muted); max-width: 530px; margin: 0 auto; }
+    .scroll { display: inline-block; margin-top: 36px; color: var(--gold-light); text-decoration: none; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; }
+    .scroll span { display: block; font-size: 1.5rem; margin-top: 7px; animation: bob 1.5s ease-in-out infinite; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+    h2 { font-size: clamp(2rem, 8vw, 3.3rem); font-weight: 400; font-style: italic; color: var(--gold-light); margin: 0 0 18px; }
+    .quote { font-size: clamp(1.1rem, 4vw, 1.5rem); line-height: 1.8; max-width: 570px; margin: auto; }
+    .label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: .76rem; margin-bottom: 8px; }
+    .date-line { font-size: clamp(1.4rem, 5vw, 2rem); margin: 7px 0; }
+    .details-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 28px; }
+    .detail { border: 1px solid rgba(217,182,110,.42); padding: 20px 12px; background: rgba(4,13,31,.28); }
+    .detail .icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 10px; }
+    .detail strong { display: block; font-weight: 400; font-size: 1.1rem; line-height: 1.5; }
+    .detail small { display: block; color: var(--muted); margin-top: 5px; font-family: Arial, sans-serif; font-size: .75rem; letter-spacing: .05em; }
+    .countdown { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; max-width: 520px; margin: 28px auto 0; }
+    .time { padding: 15px 4px; border-top: 1px solid var(--gold); border-bottom: 1px solid rgba(217,182,110,.4); }
+    .time b { display: block; font-size: clamp(1.5rem, 6vw, 2.3rem); color: var(--gold-light); font-weight: 400; }
+    .time span { font: .65rem Arial, sans-serif; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .button { display: inline-block; margin-top: 24px; border: 1px solid var(--gold); color: var(--navy); background: linear-gradient(135deg, var(--gold-light), var(--gold)); padding: 14px 23px; text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font: .78rem Arial, sans-serif; transition: transform .2s, box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 7px 25px rgba(217,182,110,.18); }
+    .dress { color: var(--muted); font-size: 1.1rem; letter-spacing: .05em; }
+    footer { text-align: center; padding: 26px 12px 48px; color: var(--gold-light); font-style: italic; font-size: 1.8rem; }
+    .phases { color: var(--gold); letter-spacing: .16em; font-size: 1.8rem; margin-top: 20px; }
+    @media (max-width: 420px) {
+      section { padding: 42px 15px; }
+      .details-grid { gap: 8px; }
+      .detail { padding: 16px 8px; }
+      .detail strong { font-size: 1rem; }
+      .frame { margin: 12px auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true" id="stars"></div>
+  <main class="wrap">
+    <div class="frame">
+      <section class="hero" id="inicio">
+        <div class="hero-inner">
+          <div class="moon" aria-hidden="true">☾</div>
+          <div class="eyebrow">Una noche bajo las estrellas</div>
+          <h1>Mis <span>15 Años</span><span style="font-size:.48em; margin-top:18px; font-style:normal; letter-spacing:.18em">ADA</span></h1>
+          <div class="rule">✧</div>
+          <p class="intro">Hay noches que se vuelven recuerdos para toda la vida…<br>y me encantaría compartir esta con vos.</p>
+          <a class="scroll" href="#mensaje">Deslizá para descubrir<span>⌄</span></a>
+        </div>
+      </section>
+      <section id="mensaje">
+        <div class="eyebrow">Mi deseo para esta noche</div>
+        <div class="rule">☾</div>
+        <p class="quote">“Dicen que cada estrella guarda un deseo, y hoy uno de los míos es compartir esta noche tan especial con las personas que iluminan mi vida”.</p>
+        <div class="rule">✧</div>
+      </section>
+      <section id="cuenta">
+        <div class="label">La cuenta regresiva comenzó</div>
+        <h2>Nos vemos pronto</h2>
+        <div class="date-line">Sábado 19 de diciembre</div>
+        <div class="label">2026 · 21:00 hs</div>
+        <div class="countdown" aria-label="Cuenta regresiva">
+          <div class="time"><b id="days">--</b><span>Días</span></div>
+          <div class="time"><b id="hours">--</b><span>Horas</span></div>
+          <div class="time"><b id="minutes">--</b><span>Minutos</span></div>
+          <div class="time"><b id="seconds">--</b><span>Segundos</span></div>
+        </div>
+      </section>
+      <section id="detalles">
+        <div class="eyebrow">Guardá la fecha</div>
+        <h2>Detalles de la noche</h2>
+        <div class="details-grid">
+          <div class="detail"><div class="icon">✧</div><div class="label">Fecha</div><strong>Sábado<br>19 de diciembre</strong><small>2026</small></div>
+          <div class="detail"><div class="icon">☾</div><div class="label">Horario</div><strong>21:00 hs</strong><small>¡Te espero puntual!</small></div>
+          <div class="detail"><div class="icon">⌖</div><div class="label">Lugar</div><strong>Quincho Aquiles</strong><small>Juan José Castelli, Chaco</small></div>
+          <div class="detail"><div class="icon">✦</div><div class="label">Dress code</div><strong>Casual y ropa de pileta</strong><small>Venite cómodo/a</small></div>
+        </div>
+        <a class="button" href="https://maps.app.goo.gl/sUbWvcRF1gaSjina8?g_st=aw" target="_blank" rel="noopener noreferrer">⌖ &nbsp; Cómo llegar</a>
+      </section>
+      <section id="final">
+        <div class="rule">✧</div>
+        <h2>¡Te espero!</h2>
+        <p class="intro">Preparemos juntos una noche llena de magia, deseos y recuerdos inolvidables.</p>
+        <div class="phases" aria-hidden="true">☾ ☽ ◐ ☾</div>
+        <div class="eyebrow" style="margin-top:22px">Con cariño, Ada</div>
+      </section>
+    </div>
+    <footer>✧ Que las estrellas nos encuentren celebrando ✧</footer>
+  </main>
+  <script>
+    // Estrellitas decorativas que titilan suavemente.
+    const starLayer = document.getElementById('stars');
+    const symbols = ['✦', '✧', '·', '⋆'];
+    for (let i = 0; i < 42; i++) {
+      const star = document.createElement('span');
+      star.className = 'star';
+      star.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.fontSize = (8 + Math.random() * 13) + 'px';
+      star.style.animationDelay = (Math.random() * 4) + 's';
+      starLayer.appendChild(star);
+    }
+
+    // La fecha se interpreta en la hora local del dispositivo.
+    const eventDate = new Date(2026, 11, 19, 21, 0, 0);
+    const pad = n => String(n).padStart(2, '0');
+    function updateCountdown() {
+      let diff = eventDate.getTime() - Date.now();
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+      const days = Math.floor(diff / 86400000); diff %= 86400000;
+      const hours = Math.floor(diff / 3600000); diff %= 3600000;
+      const minutes = Math.floor(diff / 60000); diff %= 60000;
+      const seconds = Math.floor(diff / 1000);
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
